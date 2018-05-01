@@ -1,0 +1,22 @@
+{
+    "name": "kronuz-theme",
+    "displayName": "Kronuz Theme",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "kronuz",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "Kronuz",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Kronuz-color-theme.json"
+            }
+        ]
+    }
+}
