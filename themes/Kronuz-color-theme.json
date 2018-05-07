@@ -518,9 +518,18 @@
 		},
 		{
 			"name": "Markup Styling",
-			"scope": "markup.bold, markup.italic",
+			"scope": "markup.bold",
 			"settings": {
-				"foreground": "#6089B4"
+				"fontStyle": "bold",
+				"foreground": "#437cb9"
+			}
+		},
+		{
+			"name": "Markup Styling",
+			"scope": "markup.italic",
+			"settings": {
+				"fontStyle": "italic",
+				"foreground": "#7ea4cc"
 			}
 		},
 		{
@@ -535,7 +544,7 @@
 			"name": "Markup Headings",
 			"scope": "markup.heading",
 			"settings": {
-				"foreground": "#D0B344"
+				"foreground": "#fd971f"
 			}
 		},
 		{
@@ -543,7 +552,21 @@
 			"scope": "markup.heading.setext",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#D0B344"
+				"foreground": "#fd971f"
+			}
+		},
+		{
+			"name": "Markup: underline",
+			"scope": "markup.underline",
+			"settings": {
+				"foreground": "#86c20e"
+			}
+		},
+		{
+			"name": "Markdown: Link",
+			"scope": "string.other.link.title.markdown",
+			"settings": {
+				"foreground": "#6e9cbe"
 			}
 		},
 		{
