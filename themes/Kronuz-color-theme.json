@@ -166,8 +166,8 @@
 			"name": "Function argument",
 			"scope": "variable.parameter",
 			"settings": {
-				"fontStyle": "",
-				"foreground": "#6089B4"
+				"fontStyle": "italic",
+				"foreground": "#fde9bbdd"
 			}
 		},
 		{
@@ -207,7 +207,7 @@
 			"scope": "variable.other, variable.js, punctuation.separator.variable",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#6089B4"
+				"foreground": "#e6e1dc"
 			}
 		},
 		{
@@ -231,7 +231,7 @@
 			"scope": "variable.other.php, variable.other.normal",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#6089B4"
+				"foreground": "#e6e1dc"
 			}
 		},
 		{
@@ -239,7 +239,7 @@
 			"scope": "meta.function-call.object",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#caa473"
+				"foreground": "#e8bf6a"
 			}
 		},
 		{
@@ -247,7 +247,7 @@
 			"scope": "variable.other.property",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#caa473"
+				"foreground": "#e8bf6a"
 			}
 		},
 		{
@@ -255,7 +255,7 @@
 			"scope": "keyword.control",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#caa473"
+				"foreground": "#e8bf6a"
 			}
 		},
 		{
@@ -303,7 +303,7 @@
 			"scope": "entity.other.attribute-name, meta.tag punctuation.definition.string",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#D0B344"
+				"foreground": "#e6e1dc"
 			}
 		},
 		{
@@ -373,7 +373,7 @@
 			"name": "JavaScript Variable",
 			"scope": "variable.language.js",
 			"settings": {
-				"foreground": "#CC555A"
+				"foreground": "#d0d0ff"
 			}
 		},
 		{
@@ -438,7 +438,7 @@
 			"scope": "variable.language.ruby",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#D0B344"
+				"foreground": "#d0d0ff"
 			}
 		},
 		{
@@ -574,7 +574,7 @@
 			"name": "this.self",
 			"scope": "variable.language",
 			"settings": {
-				"foreground": "#c7444a"
+				"foreground": "#d0d0ff"
 			}
 		},
 		{
@@ -628,13 +628,14 @@
 		{
 			"scope": "support.type",
 			"settings": {
+				"fontStyle": "italic",
 				"foreground": "#da4939"
 			}
 		},
 		{
 			"scope": "support.class",
 			"settings": {
-				"foreground": "#da4939"
+				"foreground": "#e8bf6a"
 			}
 		},
 		{
