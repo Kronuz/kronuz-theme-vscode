@@ -455,13 +455,6 @@
 			}
 		},
 		{
-			"name": "String",
-			"scope": "string",
-			"settings": {
-				"foreground": "#a5c261"
-			}
-		},
-		{
 			"name": "Keyword",
 			"scope": "keyword",
 			"settings": {
@@ -480,12 +473,6 @@
 			"scope": "storage",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#caa473"
-			}
-		},
-		{
-			"scope": "storage.type",
-			"settings": {
 				"foreground": "#cc7833"
 			}
 		},
@@ -518,7 +505,7 @@
 		},
 		{
 			"name": "Function Name",
-			"scope": "meta.function, entity.name.function",
+			"scope": "entity.name.function",
 			"settings": {
 				"foreground": "#e8bf6a"
 			}
@@ -563,24 +550,45 @@
 		},
 		{
 			"name": "Built-in constant",
-			"scope": "constant.language",
+			"scope": "constant.character, constant.language, constant.other.character-class",
 			"settings": {
 				"foreground": "#6e9cbe"
 			}
 		},
 		{
 			"name": "User-defined constant",
-			"scope": "constant.character, constant.other",
+			"scope": "",
 			"settings": {
 				"fontStyle": "italic",
 				"foreground": "#e8e6e5"
 			}
 		},
 		{
+			"name": "String",
+			"scope": "string, string.quoted.single",
+			"settings": {
+				"foreground": "#a5c261"
+			}
+		},
+		{
 			"name": "String Double-quoted",
-			"scope": "string.quoted.double",
+			"scope": "string.quoted.double, string.quoted.multi",
 			"settings": {
 				"foreground": "#c1be91"
+			}
+		},
+		{
+			"name": "String Regexp",
+			"scope": "string.regexp.quoted",
+			"settings": {
+				"foreground": "#c7d87b"
+			}
+		},
+		{
+			"name": "String Docstring",
+			"scope": "string.quoted.docstring",
+			"settings": {
+				"foreground": "#95815e"
 			}
 		},
 		{
