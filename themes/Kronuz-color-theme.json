@@ -12,6 +12,9 @@
 		"editor.lineHighlightBackground": "#60606080",
 		"editor.selectionBackground": "#3366ff66",
 		"editor.selectionHighlightBackground": "#575b6180",
+		"editorError.foreground": "#ea4646",
+		"editorWarning.foreground": "#ea9e46",
+		"editorInfo.foreground": "#469eea88",
 		"editor.wordHighlightBackground": "#4747a180",
 		"editor.wordHighlightStrongBackground": "#6767ce80",
 		"editorCursor.foreground": "#c07020",
@@ -20,10 +23,10 @@
 		"editorHoverWidget.background": "#383838",
 		"editorHoverWidget.border": "#585858",
 		"editorIndentGuide.activeBackground": "#707057",
-		"editorIndentGuide.background": "#ffffff10",
+		"editorIndentGuide.background": "#ffffff06",
 		"editorLineNumber.activeForeground": "#949494",
-		"editorRuler.foreground": "#ffffff10",
-		"editorWhitespace.foreground": "#ffffff10",
+		"editorRuler.foreground": "#ffffff06",
+		"editorWhitespace.foreground": "#ffffff08",
 		"focusBorder": "#b0b0b060",
 		"input.background": "#282828",
 		"inputOption.activeBorder": "#3655b5",
@@ -133,7 +136,7 @@
 			"scope": "meta.tag",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#D0B344"
+				"foreground": "#c8c6c5"
 			}
 		},
 		{
