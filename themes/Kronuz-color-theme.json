@@ -53,18 +53,22 @@
 	"tokenColors": [
 		{
 			"settings": {
+				"activeGuide": "#df940088",
+				"background": "#383838",
+				"bracketContentsForeground": "#f8f8f2a5",
+				"bracketContentsOptions": "underline",
+				"bracketsForeground": "#ff9400",
+				"bracketsOptions": "foreground underline",
+				"caret": "#ffffff",
+				"findHighlight": "#000000",
+				"findHighlightForeground": "#cccccc",
 				"foreground": "#c8c6c5",
-				"background": "#383838"
-			}
-		},
-		{
-			"scope": [
-				"meta.embedded",
-				"source.groovy.embedded"
-			],
-			"settings": {
-				"background": "#1e1e1e",
-				"foreground": "#c8c6c5"
+				"invisibles": "#404040",
+				"lineHighlight": "#60606080",
+				"selection": "#3366ff66",
+				"selectionBorder": "#1c1c1c",
+				"stackGuide": "#df940044",
+				"tagsOptions": "stippled_underline"
 			}
 		},
 		{
@@ -235,19 +239,14 @@
 		},
 		{
 			"name": "Template Definition",
-			"scope": [
-				"punctuation.definition.template-expression",
-				"punctuation.section.embedded.coffee"
-			],
+			"scope": "punctuation.definition.template-expression, punctuation.section.embedded.coffee",
 			"settings": {
 				"foreground": "#D08442"
 			}
 		},
 		{
 			"name": "Reset JavaScript string interpolation expression",
-			"scope": [
-				"meta.template.expression"
-			],
+			"scope": "meta.template.expression",
 			"settings": {
 				"foreground": "#c8c6c5"
 			}
@@ -308,10 +307,7 @@
 		},
 		{
 			"name": "Ruby Embedded Source",
-			"scope": [
-				"punctuation.section.embedded.begin.ruby",
-				"punctuation.section.embedded.end.ruby"
-			],
+			"scope": "punctuation.section.embedded.begin.ruby, punctuation.section.embedded.end.ruby",
 			"settings": {
 				"foreground": "#D08442"
 			}
@@ -612,7 +608,7 @@
 		},
 		{
 			"name": "Embedded",
-			"scope": "markup.fenced_code.block.markdown",
+			"scope": "markup.fenced_code.block.markdown, meta.embedded, source.groovy.embedded",
 			"settings": {
 				"background": "#00000022"
 			}
