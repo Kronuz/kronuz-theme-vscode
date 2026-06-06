@@ -31,8 +31,8 @@ function build(variant) {
   const c = dark ? ramp(58, 64) : ramp(62, 42);
   // Neutral UI grays (warmth only in fg/accents, like the real Kronuz editor).
   const g = dark
-    ? { bg: hsl(28, 9, 18), bg0: hsl(28, 9, 10), bg1: hsl(28, 9, 13), bg2: hsl(28, 8, 15), bg3: hsl(28, 8, 16),
-        line: "#ffffff0a", border: hsl(28, 6, 30), dim: "#7a7775", fg: "#c8c6c5", fgSoft: "#9a9794" }
+    ? { bg: hsl(0, 0, 22), bg0: hsl(0, 0, 14), bg1: hsl(0, 0, 17), bg2: hsl(0, 0, 19), bg3: hsl(0, 0, 20),
+        line: "#ffffff0a", border: hsl(0, 0, 34), dim: "#7a7775", fg: "#c8c6c5", fgSoft: "#9a9794" }
     : { bg: "#faf8f5", bg0: "#ece9e4", bg1: "#f1efea", bg2: "#e9e6e1", bg3: "#f4f2ee",
         line: "#00000008", border: "#dcd8d2", dim: "#9a9690", fg: "#403a36", fgSoft: "#6a655f" };
   const cursor = dark ? "#d08040" : "#b3611f"; // warm caret, the Kronuz signature
