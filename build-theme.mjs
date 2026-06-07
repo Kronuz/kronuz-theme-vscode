@@ -22,13 +22,17 @@ const hsl = (h, s, l) => {
   const to = (x) => Math.round(255 * x).toString(16).padStart(2, "0");
   return `#${to(f(0))}${to(f(8))}${to(f(4))}`;
 };
-const HUE = { red: 0, orange: 24, yellow: 40, green: 154, blue: 210, purple: 267, pink: 330 };
-const ramp = (s, l) => Object.fromEntries(Object.entries(HUE).map(([k, h]) => [k, hsl(h, s, l)]));
-
 function build(variant) {
   const dark = variant === "dark";
-  // Syntax palette: bright on dark, a touch deeper on light for contrast.
-  const c = dark ? ramp(58, 64) : ramp(62, 42);
+  // The original Kronuz syntax palette (the classic colors), with a deeper light
+  // variant. UI grays live in `g`; the warmth is here, in the accents and caret.
+  const c = dark
+    ? { red: "#da4939", orange: "#cc7833", yellow: "#e8bf6a", green: "#a5c261", blue: "#6089b4",
+        purple: "#d0d0ff", pink: "#d687bf", comment: "#95815e", tag: "#caa473", vari: "#e8e6e5",
+        param: "#fde9bb", regexp: "#c7d87b", escape: "#d08442" }
+    : { red: "#c23a2b", orange: "#b3601c", yellow: "#9c7a1f", green: "#6f8f2e", blue: "#2f5f8a",
+        purple: "#5b5bb8", pink: "#a8458f", comment: "#857748", tag: "#94703e", vari: "#403a36",
+        param: "#8a763a", regexp: "#79872f", escape: "#a8642a" };
   // Neutral UI grays (warmth only in fg/accents, like the real Kronuz editor).
   const g = dark
     ? { bg: hsl(0, 0, 22), bg0: hsl(0, 0, 14), bg1: hsl(0, 0, 17), bg2: hsl(0, 0, 19), bg3: hsl(0, 0, 20),
@@ -162,40 +166,40 @@ function build(variant) {
   });
   const tokenColors = [
     r(null, undefined, undefined), // (global settings come from `colors`)
-    r("comment, punctuation.definition.comment", g.dim, "italic"),
+    r("comment, punctuation.definition.comment", c.comment, "italic"),
     r("string, string.quoted, string.template, meta.string", c.green),
-    r("constant.character.escape, constant.other.placeholder, string.regexp constant.character.escape", c.purple),
-    r("string.regexp, keyword.operator.regexp", c.orange),
-    r("constant.numeric, constant.numeric.integer, constant.numeric.float, keyword.other.unit", c.purple),
+    r("constant.character.escape, constant.other.placeholder, string.regexp constant.character.escape", c.escape),
+    r("string.regexp, keyword.operator.regexp", c.regexp),
+    r("constant.numeric, constant.numeric.integer, constant.numeric.float, keyword.other.unit", c.green),
     r("constant.language, constant.language.boolean, constant.language.null, constant.language.undefined", c.orange),
     r("constant.other, support.constant, constant.other.color", c.orange),
-    r("keyword, keyword.control, keyword.other, keyword.declaration", c.pink),
-    r("keyword.operator, keyword.operator.new, keyword.operator.expression, punctuation.accessor", c.pink),
-    r("storage, storage.type, storage.modifier", c.pink),
-    r("entity.name.function, support.function, meta.function-call entity.name.function, variable.function", c.blue),
-    r("entity.name.class, entity.name.type, entity.name.namespace, support.type, support.class, entity.other.inherited-class, entity.name.type.class", c.yellow),
-    r("entity.name.tag, punctuation.definition.tag", c.pink),
-    r("entity.other.attribute-name, entity.other.attribute-name.html, entity.other.attribute-name.class.css", c.green),
-    r("support.type.property-name, meta.object-literal.key, support.type.property-name.json, support.type.property-name.css, entity.name.tag.yaml", c.blue),
-    r("variable, variable.other, variable.other.readwrite, meta.definition.variable", g.fg),
+    r("keyword, keyword.control, keyword.other, keyword.declaration", c.orange),
+    r("keyword.operator, keyword.operator.new, keyword.operator.expression, punctuation.accessor", c.orange),
+    r("storage, storage.type, storage.modifier", c.orange),
+    r("entity.name.function, support.function, meta.function-call entity.name.function, variable.function", c.yellow),
+    r("entity.name.class, entity.name.type, entity.name.namespace, support.type, support.class, entity.other.inherited-class, entity.name.type.class", c.red),
+    r("entity.name.tag, punctuation.definition.tag", c.tag),
+    r("entity.other.attribute-name, entity.other.attribute-name.html, entity.other.attribute-name.class.css", c.vari),
+    r("support.type.property-name, meta.object-literal.key, support.type.property-name.json, support.type.property-name.css, entity.name.tag.yaml", c.vari),
+    r("variable, variable.other, variable.other.readwrite, meta.definition.variable", c.vari),
     r("variable.other.constant, variable.other.enummember", c.orange),
-    r("variable.parameter, meta.function.parameters", c.orange, "italic"),
-    r("variable.language, variable.language.this, variable.language.self, variable.language.super", c.orange, "italic"),
+    r("variable.parameter, meta.function.parameters", c.param, "italic"),
+    r("variable.language, variable.language.this, variable.language.self, variable.language.super", c.purple, "italic"),
     r("entity.name.function.decorator, meta.decorator, punctuation.decorator, meta.annotation, storage.type.annotation", c.yellow),
     r("punctuation, meta.brace, punctuation.separator, punctuation.terminator, punctuation.definition.parameters", g.fgSoft),
     r("entity.name.label, support.other.namespace", c.yellow),
     // markdown / mdx
-    r("markup.heading, markup.heading entity.name, entity.name.section", c.blue, "bold"),
+    r("markup.heading, markup.heading entity.name, entity.name.section", c.orange, "bold"),
     r("markup.bold", c.orange, "bold"),
     r("markup.italic", g.fg, "italic"),
     r("markup.underline.link, markup.link, string.other.link, constant.other.reference.link", c.blue, "underline"),
-    r("markup.inline.raw, markup.raw, markup.fenced_code", c.green),
+    r("markup.inline.raw, markup.raw, markup.fenced_code", c.pink),
     r("markup.quote", g.fgSoft, "italic"),
-    r("markup.list punctuation.definition.list.begin", c.pink),
+    r("markup.list punctuation.definition.list.begin", c.green),
     // diff
     r("markup.inserted, markup.inserted.diff, meta.diff.header.to-file", c.green),
     r("markup.deleted, markup.deleted.diff, meta.diff.header.from-file", c.red),
-    r("markup.changed, markup.changed.diff", c.yellow),
+    r("markup.changed, markup.changed.diff", c.orange),
     r("meta.diff.range, punctuation.definition.range.diff", c.purple),
     r("invalid, invalid.illegal", c.red),
     r("invalid.deprecated", c.orange),
