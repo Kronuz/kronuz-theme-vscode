@@ -4,7 +4,7 @@
 	"semanticHighlighting": true,
 	"colors": {
 		"activityBar.background": "#f2f2f2",
-		"activityBar.foreground": "#000000",
+		"activityBar.foreground": "#292929",
 		"activityBarBadge.background": "#183eb4",
 		"button.background": "#a9a9a9",
 		"dropdown.background": "#adadad",
@@ -24,10 +24,10 @@
 		"editorHoverWidget.background": "#fafafa",
 		"editorHoverWidget.border": "#a7a7a7",
 		"editorIndentGuide.activeBackground": "#68683c",
-		"editorIndentGuide.background": "#00000006",
+		"editorIndentGuide.background": "#29292906",
 		"editorLineNumber.activeForeground": "#6b6b6b",
-		"editorRuler.foreground": "#00000006",
-		"editorWhitespace.foreground": "#00000008",
+		"editorRuler.foreground": "#29292906",
+		"editorWhitespace.foreground": "#29292908",
 		"focusBorder": "#4f4f4f60",
 		"input.background": "#f6f6f6",
 		"inputOption.activeBorder": "#183eb4",
@@ -36,7 +36,7 @@
 		"list.highlightForeground": "#c46808",
 		"list.hoverBackground": "#fefefe",
 		"list.inactiveSelectionBackground": "#b1b1b1",
-		"panelTitle.activeForeground": "#000000",
+		"panelTitle.activeForeground": "#292929",
 		"peekView.border": "#183eb4",
 		"pickerGroup.foreground": "#4f4f4f",
 		"sideBar.background": "#f6f6f6",
@@ -46,8 +46,8 @@
 		"statusBar.noFolderBackground": "#afafaf",
 		"tab.border": "#f8f8f8",
 		"tab.inactiveBackground": "#f6f6f6",
-		"tab.inactiveForeground": "#272727",
-		"terminal.ansiWhite": "#000000",
+		"tab.inactiveForeground": "#292929",
+		"terminal.ansiWhite": "#292929",
 		"terminal.background": "#efefef",
 		"titleBar.activeBackground": "#afafaf"
 	},
@@ -104,7 +104,7 @@
 			"scope": "variable.other, variable.js, punctuation.separator.variable",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#1a1817"
+				"foreground": "#2b2826"
 			}
 		},
 		{
@@ -125,7 +125,7 @@
 			"scope": "variable.other.php, variable.other.normal",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#1a1817"
+				"foreground": "#2b2826"
 			}
 		},
 		{
@@ -160,7 +160,7 @@
 			"scope": "entity.other.attribute-name, meta.tag punctuation.definition.string",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#1a1817"
+				"foreground": "#2b2826"
 			}
 		},
 		{
@@ -201,7 +201,7 @@
 			"scope": "support.type.property-name.css",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#1a1817"
+				"foreground": "#2b2826"
 			}
 		},
 		{
@@ -483,7 +483,7 @@
 		{
 			"scope": "variable",
 			"settings": {
-				"foreground": "#1a1817"
+				"foreground": "#2b2826"
 			}
 		},
 		{
@@ -503,7 +503,7 @@
 			"scope": "",
 			"settings": {
 				"fontStyle": "italic",
-				"foreground": "#1a1817"
+				"foreground": "#2b2826"
 			}
 		},
 		{

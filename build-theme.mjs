@@ -60,8 +60,9 @@ const toLight = (hex) => {
   const [r, g, b, a] = parseHex(hex);
   const [h, s, l] = rgb2hsl(r, g, b);
   if (s < 12) {
-    // Neutral: deep surfaces brighten toward white, mid grays/text invert.
-    const L = l < 28 ? 92 + l * 0.28 : 100 - l;
+    // Neutral: deep surfaces brighten toward white; mid grays/text invert, but
+    // the darkest text is floored so it lands around #2a2827, not near-black.
+    const L = l < 28 ? 92 + l * 0.28 : Math.max(16, 100 - l);
     return hsl(h, s, L) + a;
   }
   // Chromatic: invert + deepen, and boost saturation so colors stay vivid on the
