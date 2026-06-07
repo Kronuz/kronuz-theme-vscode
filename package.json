@@ -1,21 +1,29 @@
 {
     "name": "kronuz-theme",
     "displayName": "Kronuz Theme",
-    "description": "",
-    "version": "0.0.6",
+    "description": "A warm, low-contrast dark theme (with a matching light variant) built on a clean HSL palette.",
+    "version": "0.1.0",
     "publisher": "Kronuz",
+    "license": "MIT",
+    "icon": "icon.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/Kronuz/kronuz-theme-vscode"
     },
     "bugs": {
         "url": "https://github.com/Kronuz/kronuz-theme-vscode/issues"
-      },
+    },
     "engines": {
         "vscode": "^1.22.0"
     },
     "categories": [
         "Themes"
+    ],
+    "keywords": [
+        "theme",
+        "dark",
+        "light",
+        "color-theme"
     ],
     "contributes": {
         "themes": [
@@ -23,7 +31,15 @@
                 "label": "Kronuz",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Kronuz-color-theme.json"
+            },
+            {
+                "label": "Kronuz Light",
+                "uiTheme": "vs",
+                "path": "./themes/Kronuz-light-color-theme.json"
             }
         ]
+    },
+    "scripts": {
+        "build": "node build-theme.mjs"
     }
 }
