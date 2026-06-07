@@ -59,16 +59,19 @@ const toLight = (hex) => {
   if (typeof hex !== "string" || hex[0] !== "#") return hex;
   const [r, g, b, a] = parseHex(hex);
   const [h, s, l] = rgb2hsl(r, g, b);
-  let L;
   if (s < 12) {
-    L = l < 28 ? 92 + l * 0.28 : 100 - l;
-  } else {
-    // Greens/yellow-greens read lighter at equal lightness (they're more
-    // luminous), so cap them deeper for even contrast on the light background.
-    const luminous = h >= 55 && h <= 175;
-    L = Math.min(100 - l, luminous ? 34 : 44);
+    // Neutral: deep surfaces brighten toward white, mid grays/text invert.
+    const L = l < 28 ? 92 + l * 0.28 : 100 - l;
+    return hsl(h, s, L) + a;
   }
-  return hsl(h, s, L) + a;
+  // Chromatic: invert + deepen, and boost saturation so colors stay vivid on the
+  // light background (a white surround makes equal-saturation colors look washed).
+  // Greens/yellow-greens are more luminous, so cap them deeper for even weight;
+  // a floor keeps already-pale accents (e.g. this/super) from crushing to black.
+  const luminous = h >= 55 && h <= 175;
+  const L = Math.max(28, Math.min(100 - l, luminous ? 32 : 40));
+  const S = Math.min(92, s * 1.2 + 12);
+  return hsl(h, S, L) + a;
 };
 
 const dark = JSON.parse(readFileSync(here("./themes/Kronuz-color-theme.json")));
