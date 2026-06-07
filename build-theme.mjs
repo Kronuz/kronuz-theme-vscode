@@ -48,14 +48,26 @@ const hsl = (h, s, l) => {
   return `#${to(f(0))}${to(f(8))}${to(f(4))}`;
 };
 
-// The light counterpart of a dark color: invert lightness, keep hue + saturation.
-// Chromatic colors are floored in darkness so they stay rich on the light bg.
+// The light counterpart of a dark color, derived deterministically:
+//  - Neutral surfaces (dark grays) brighten toward white so the editor reads as
+//    a proper light surface; mid grays invert to light borders and the light
+//    text/foregrounds invert to dark. (A flat lightness-inversion left the
+//    editor a dim #c7c7c7, so deep neutrals get lifted instead.)
+//  - Chromatic colors invert lightness (hue + saturation kept) but stay deep
+//    enough to read richly on the light background instead of washing out.
 const toLight = (hex) => {
   if (typeof hex !== "string" || hex[0] !== "#") return hex;
   const [r, g, b, a] = parseHex(hex);
   const [h, s, l] = rgb2hsl(r, g, b);
-  let L = 100 - l;
-  if (s >= 12) L = Math.min(L, 48);
+  let L;
+  if (s < 12) {
+    L = l < 28 ? 92 + l * 0.28 : 100 - l;
+  } else {
+    // Greens/yellow-greens read lighter at equal lightness (they're more
+    // luminous), so cap them deeper for even contrast on the light background.
+    const luminous = h >= 55 && h <= 175;
+    L = Math.min(100 - l, luminous ? 34 : 44);
+  }
   return hsl(h, s, L) + a;
 };
 
