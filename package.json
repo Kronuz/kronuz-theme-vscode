@@ -40,6 +40,6 @@
         ]
     },
     "scripts": {
-        "build": "node build-theme.mjs"
+        "build": "node build.mjs"
     }
 }

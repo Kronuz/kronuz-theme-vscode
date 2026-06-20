@@ -1,6 +1,7 @@
 {
 	"name": "Kronuz",
 	"type": "dark",
+	"semanticHighlighting": true,
 	"colors": {
 		"activityBar.background": "#1a1a1a",
 		"activityBar.foreground": "#ffffff",
@@ -84,7 +85,7 @@
 			"scope": "support",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#C7444A"
+				"foreground": "#da4939"
 			}
 		},
 		{
@@ -116,7 +117,7 @@
 			"scope": "punctuation.section.embedded -(source string source punctuation.section.embedded), meta.brace.erb.html",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#008200"
+				"foreground": "#a5c261"
 			}
 		},
 		{
@@ -227,7 +228,7 @@
 			"scope": "meta.property-group support.constant.property-value.css, meta.property-value support.constant.property-value.css",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#C7444A"
+				"foreground": "#da4939"
 			}
 		},
 		{
@@ -256,7 +257,7 @@
 			"scope": "meta.function-call.object.php",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#D0B344"
+				"foreground": "#e8bf6a"
 			}
 		},
 		{
@@ -270,7 +271,7 @@
 			"name": "PHP Parenthesis HMTL Fix",
 			"scope": "source.php.embedded.line.html",
 			"settings": {
-				"foreground": "#676867"
+				"foreground": "#7a7775"
 			}
 		},
 		{
@@ -302,7 +303,7 @@
 			"scope": "keyword.other.special-method.ruby",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#D9B700"
+				"foreground": "#cc7833"
 			}
 		},
 		{
@@ -317,7 +318,7 @@
 			"scope": "keyword.other.DML.sql",
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#D0B344"
+				"foreground": "#e8bf6a"
 			}
 		},
 		{
@@ -326,7 +327,7 @@
 			"settings": {
 				"background": "#b58900",
 				"fontStyle": "italic",
-				"foreground": "#E0EDDD"
+				"foreground": "#9a9794"
 			}
 		},
 		{
@@ -412,7 +413,7 @@
 			"name": "Markup: underline",
 			"scope": "markup.underline",
 			"settings": {
-				"foreground": "#86c20e"
+				"foreground": "#9aa83a"
 			}
 		},
 		{
@@ -425,25 +426,25 @@
 		{
 			"scope": "token.info-token",
 			"settings": {
-				"foreground": "#6796e6"
+				"foreground": "#6089b4"
 			}
 		},
 		{
 			"scope": "token.warn-token",
 			"settings": {
-				"foreground": "#cd9731"
+				"foreground": "#cc7833"
 			}
 		},
 		{
 			"scope": "token.error-token",
 			"settings": {
-				"foreground": "#f44747"
+				"foreground": "#dc322f"
 			}
 		},
 		{
 			"scope": "token.debug-token",
 			"settings": {
-				"foreground": "#b267e6"
+				"foreground": "#d687bf"
 			}
 		},
 		{
@@ -611,6 +612,81 @@
 			"scope": "markup.fenced_code.block.markdown, meta.embedded, source.groovy.embedded",
 			"settings": {
 				"background": "#00000022"
+			}
+		},
+		{
+			"scope": "punctuation.definition.comment",
+			"settings": {
+				"foreground": "#95815e",
+				"fontStyle": "italic"
+			}
+		},
+		{
+			"scope": "meta.string",
+			"settings": {
+				"foreground": "#a5c261"
+			}
+		},
+		{
+			"scope": "constant.other.placeholder",
+			"settings": {
+				"foreground": "#d08442"
+			}
+		},
+		{
+			"scope": "constant.other, punctuation.accessor",
+			"settings": {
+				"foreground": "#cc7833"
+			}
+		},
+		{
+			"scope": "entity.name.namespace",
+			"settings": {
+				"foreground": "#da4939"
+			}
+		},
+		{
+			"scope": "punctuation.definition.tag",
+			"settings": {
+				"foreground": "#caa473"
+			}
+		},
+		{
+			"scope": "support.type.property-name, meta.object-literal.key, meta.definition.variable",
+			"settings": {
+				"foreground": "#e8e6e5"
+			}
+		},
+		{
+			"scope": "meta.decorator, punctuation.decorator, entity.name.label",
+			"settings": {
+				"foreground": "#e8bf6a"
+			}
+		},
+		{
+			"scope": "punctuation, meta.brace, punctuation.separator, punctuation.terminator",
+			"settings": {
+				"foreground": "#c8c6c5"
+			}
+		},
+		{
+			"scope": "entity.name.section",
+			"settings": {
+				"foreground": "#fd971f",
+				"fontStyle": "bold"
+			}
+		},
+		{
+			"scope": "markup.link",
+			"settings": {
+				"foreground": "#6089b4",
+				"fontStyle": "underline"
+			}
+		},
+		{
+			"scope": "markup.raw.inline, markup.raw, markup.fenced_code",
+			"settings": {
+				"foreground": "#d687bf"
 			}
 		}
 	]
