@@ -13,13 +13,23 @@ Ships two variants:
 
 ## Building
 
-Both variants are generated from one palette and one scope -> color map:
+This repo is the **single source of truth** for the Kronuz syntax theme across
+editors. The canonical dark theme lives in `src/base-dark.json` (the verbatim 0.0.6
+tokenColors + workbench colors); `build.mjs` merges in a few modern, normalized scopes
+and emits, identically:
+
+- **VS Code** — `themes/Kronuz-color-theme.json` (dark) + `themes/Kronuz-light-color-theme.json`
+- **Sublime Text** — `../Kronuz-Theme/Kronuz.sublime-color-scheme` (+ light)
+- **TextMate** — `../kronuzsh/integrations/themes/Kronuz.tmTheme` (+ light), used by
+  bat, git-delta and yazi's syntect code preview
 
 ```sh
-npm run build   # or: node build-theme.mjs
+npm run build   # or: node build.mjs
 ```
 
-Edit the palette or the scope map in `build-theme.mjs` and re-run to regenerate
-`themes/Kronuz-color-theme.json` and `themes/Kronuz-light-color-theme.json`.
+Every **light** variant is derived mathematically from its dark counterpart (lightness
+inverted, hue/saturation kept, chromatics deepened), so they never drift. Sibling repos
+are written only when checked out next to this one. To change a colour, edit
+`src/base-dark.json` (or the additions in `build.mjs`) and re-run.
 
 **Enjoy!**
