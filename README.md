@@ -22,6 +22,8 @@ and emits, identically:
 - **Sublime Text** — `../Kronuz-Theme/Kronuz.sublime-color-scheme` (+ light)
 - **TextMate** — `../kronuzsh/integrations/themes/Kronuz.tmTheme` (+ light), used by
   bat, git-delta and yazi's syntect code preview
+- **Zed** — `zed/themes/Kronuz.json` (a theme family carrying both dark + light); drop it
+  into `~/.config/zed/themes/` to use it
 
 ```sh
 npm run build   # or: node build.mjs

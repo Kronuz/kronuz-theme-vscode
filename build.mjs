@@ -200,6 +200,152 @@ const tmTheme = (light) => {
   return s;
 };
 
+/* ------------------------------------------------------------------------ Zed output */
+// Zed themes use a flat set of NAMED syntax tokens (keyword, string, type, ...) rather
+// than TextMate scope selectors, so the canonical named `palette` maps almost 1:1 onto
+// them. A theme "family" carries a dark + light pair. UI surfaces come from the same
+// workbench colors the other editors frame the code with.
+const zed = () => {
+  const theme = (light) => {
+    const P = light ? mapColors(palette) : palette;     // named palette (light-derived)
+    const c = light ? mapColors(darkColors) : darkColors; // workbench colors
+    const g = ui(c);
+    const lit = (h) => (light ? toLight(h) : h);
+    const fg = (color, extra) => ({ color, ...(extra || {}) });
+    const ital = { font_style: "italic" };
+    const bold = { font_weight: 700 };
+
+    const syntax = {
+      comment: fg(P.comment, ital),
+      "comment.doc": fg(P.comment, ital),
+      keyword: fg(P.keyword),
+      preproc: fg(P.keyword),
+      operator: fg(g.foreground),
+      punctuation: fg(g.foreground),
+      "punctuation.bracket": fg(g.foreground),
+      "punctuation.delimiter": fg(g.foreground),
+      "punctuation.special": fg(P.escape),
+      "punctuation.list_marker": fg(P.list),
+      "punctuation.markup": fg(P.soft),
+      string: fg(P.string),
+      "string.escape": fg(P.escape),
+      "string.regex": fg(P.regexp),
+      "string.special": fg(P.escape),
+      "string.special.symbol": fg(P.constLang),
+      number: fg(P.number),
+      boolean: fg(P.constLang),
+      constant: fg(P.constLang),
+      function: fg(P.func),
+      "function.method": fg(P.func),
+      constructor: fg(P.func),
+      label: fg(P.func),
+      "selector.pseudo": fg(P.func),
+      attribute: fg(P.func),
+      type: fg(P.type),
+      "type.builtin": fg(P.type),
+      enum: fg(P.type),
+      namespace: fg(P.type),
+      selector: fg(P.tag),
+      variant: fg(P.cls),
+      variable: fg(P.vari),
+      "variable.special": fg(P.keyword),
+      property: fg(P.vari),
+      tag: fg(P.tag),
+      title: fg(P.heading, bold),
+      emphasis: fg(P.mdItalic, ital),
+      "emphasis.strong": fg(P.mdBold, bold),
+      link_text: fg(P.link),
+      link_uri: fg(P.link, { font_style: "italic" }),
+      "text.literal": fg(P.raw),
+      "diff.plus": fg(P.ins),
+      "diff.minus": fg(P.del),
+      hint: fg(P.dim),
+      predictive: fg(P.dim),
+      primary: fg(g.foreground),
+    };
+
+    // ANSI: chromatic from the palette; black/white anchors fixed per appearance so the
+    // terminal keeps correct contrast in both light and dark (no naive inversion).
+    const ansi = {
+      "terminal.ansi.black": light ? "#e5e4e3" : "#2b2b2b",
+      "terminal.ansi.red": P.type, "terminal.ansi.green": P.string,
+      "terminal.ansi.yellow": P.func, "terminal.ansi.blue": P.link,
+      "terminal.ansi.magenta": P.raw, "terminal.ansi.cyan": P.mdItalic,
+      "terminal.ansi.white": light ? "#3b3b3b" : "#c8c6c5",
+      "terminal.ansi.bright_black": light ? "#cfcdcc" : "#7a7775",
+      "terminal.ansi.bright_red": P.type, "terminal.ansi.bright_green": P.regexp,
+      "terminal.ansi.bright_yellow": P.cls, "terminal.ansi.bright_blue": P.constLang,
+      "terminal.ansi.bright_magenta": P.raw, "terminal.ansi.bright_cyan": P.mdItalic,
+      "terminal.ansi.bright_white": light ? "#2a2827" : "#f5f5f4",
+    };
+
+    const style = {
+      background: c["sideBar.background"] || g.background,
+      "surface.background": c["sideBar.background"] || g.background,
+      "elevated_surface.background": c["tab.inactiveBackground"] || g.background,
+      "panel.background": c["panel.background"] || c["sideBar.background"] || g.background,
+      "status_bar.background": c["sideBar.background"] || g.background,
+      "title_bar.background": c["sideBar.background"] || g.background,
+      "toolbar.background": g.background,
+      "tab_bar.background": c["tab.inactiveBackground"] || g.background,
+      "tab.active_background": g.background,
+      "tab.inactive_background": c["tab.inactiveBackground"] || g.background,
+      "editor.background": g.background,
+      "editor.foreground": g.foreground,
+      "editor.gutter.background": g.background,
+      "editor.line_number": P.dim,
+      "editor.active_line_number": g.gutterForeground,
+      "editor.active_line.background": g.lineHighlight,
+      "editor.indent_guide": g.guide,
+      "editor.indent_guide_active": g.activeGuide,
+      "editor.invisible": g.invisibles,
+      "editor.wrap_guide": g.guide,
+      "editor.active_wrap_guide": g.activeGuide,
+      "search.match_background": g.selection,
+      text: g.foreground,
+      "text.muted": P.soft,
+      "text.placeholder": P.dim,
+      "text.disabled": P.dim,
+      "text.accent": P.caret,
+      "link_text.hover": P.link,
+      icon: g.foreground,
+      "icon.muted": P.soft,
+      "icon.accent": P.caret,
+      border: lit("#00000040"),
+      "border.variant": lit("#00000026"),
+      "border.focused": c["focusBorder"] || P.link,
+      "border.selected": P.caret,
+      "element.background": c["sideBar.background"] || g.background,
+      "element.hover": g.lineHighlight,
+      "element.selected": g.selection,
+      "ghost_element.hover": g.lineHighlight,
+      "ghost_element.selected": g.selection,
+      "scrollbar.thumb.background": lit("#ffffff20"),
+      "scrollbar.track.background": "#00000000",
+      "cursor": g.caret,
+      created: P.ins, "created.background": P.ins,
+      modified: P.chg, "modified.background": P.chg,
+      deleted: P.del, "deleted.background": P.del,
+      conflict: P.heading, hidden: P.dim, ignored: P.dim,
+      error: P.invalid, warning: P.heading, info: P.link, success: P.ins,
+      hint: P.constLang, predictive: P.dim,
+      "terminal.background": g.background,
+      "terminal.foreground": g.foreground,
+      "terminal.bright_foreground": P.vari,
+      "terminal.dim_foreground": P.dim,
+      ...ansi,
+      syntax,
+    };
+    return { name: light ? "Kronuz Light" : "Kronuz", appearance: light ? "light" : "dark", style };
+  };
+  return JSON.stringify({
+    $schema: "https://zed.dev/schema/themes/v0.2.0.json",
+    name: "Kronuz",
+    author: "Germán Méndez Bravo (Kronuz)",
+    themes: [theme(false), theme(true)],
+  }, null, 2) + "\n";
+};
+
 /* ----------------------------------------------------------------------------- emit */
 const write = (url, data, label) => {
   const p = typeof url === "string" ? url : url.pathname;
@@ -226,5 +372,8 @@ if (existsSync(root("../kronuzsh"))) {
   write(sibling("../kronuzsh/integrations/themes/Kronuz.tmTheme"), tmTheme(false), "textmate dark  ../kronuzsh/integrations/themes/Kronuz.tmTheme");
   write(sibling("../kronuzsh/integrations/themes/Kronuz-Light.tmTheme"), tmTheme(true), "textmate light ../kronuzsh/integrations/themes/Kronuz-Light.tmTheme");
 } else console.log("  (skip TextMate — ../kronuzsh not present)");
+
+// Zed (this repo; a single theme-family file carrying the dark + light pair)
+write(here("./zed/themes/Kronuz.json"), zed(), "zed          zed/themes/Kronuz.json");
 
 console.log("done.");
