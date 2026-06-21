@@ -1,15 +1,14 @@
 # Kronuz Theme
 
-A warm, low-contrast theme for VS Code, built on a clean HSL palette
-(red/orange/yellow/green/blue/purple/pink at a single saturation/lightness).
-Neutral-gray UI surfaces, warmth in the text and accents, and a signature warm
-caret.
+A warm, low-contrast theme built on the classic Kronuz palette: earthy keyword
+oranges, warm string greens, a brick-red for types, against neutral-gray UI
+surfaces, with warmth in the text and a signature warm caret (`#c07020`).
 
 Ships two variants:
 
-- **Kronuz** — the dark theme (editor background `#322e2a`).
-- **Kronuz Light** — a light variant in the same spirit (warm off-white
-  background, the same hues deepened for contrast).
+- **Kronuz** — the dark theme (neutral-gray editor background `#383838`).
+- **Kronuz Light** — a light variant in the same spirit (near-white background
+  `#fafafa`, the same hues deepened for contrast).
 
 ## Building
 
