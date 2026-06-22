@@ -32,7 +32,7 @@ src/base-dark.json      verbatim 0.0.6 dark theme (47 workbench colors + 73 toke
         ▼
      build.mjs  ── emits ──►  VS Code   themes/Kronuz-color-theme.json (+ light)
                               Sublime   ../Kronuz-Theme/*.sublime-color-scheme
-                              TextMate  ../kronuzsh/integrations/themes/*.tmTheme
+                              TextMate  ../KronuZSH/integrations/themes/*.tmTheme
                               Zed       zed/themes/Kronuz.json  (dark + light in one file)
 ```
 
@@ -72,7 +72,7 @@ this repo under `~/Development/`:
 ```
 ~/Development/kronuz-theme-vscode   (this repo — source of truth + VS Code + Zed output)
 ~/Development/Kronuz-Theme          (Sublime output)        github.com/Kronuz/Kronuz-Theme
-~/Development/kronuzsh              (TextMate output)        github.com/Kronuz/kronuzsh
+~/Development/KronuZSH              (TextMate output)        github.com/Kronuz/KronuZSH
 ```
 
 A change to a color is therefore usually **three commits** (this repo + the two siblings).

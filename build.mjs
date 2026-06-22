@@ -10,7 +10,7 @@
  *
  *   - VS Code   themes/Kronuz-color-theme.json        (dark)  + Kronuz-light-color-theme.json
  *   - Sublime   ../Kronuz-Theme/Kronuz.sublime-color-scheme  + Kronuz-Light.sublime-color-scheme
- *   - TextMate  ../kronuzsh/integrations/themes/Kronuz.tmTheme + Kronuz-Light.tmTheme
+ *   - TextMate  ../KronuZSH/integrations/themes/Kronuz.tmTheme + Kronuz-Light.tmTheme
  *               (used by bat, git-delta and yazi's syntect code preview)
  *
  * Every LIGHT variant is derived mathematically from its dark counterpart (lightness
@@ -18,7 +18,7 @@
  * the two never drift. Off-palette colors from the original (the 12 odd ones: token.*
  * debug colors, a few language one-offs) are kept verbatim by request.
  *
- * Sibling repos (../Kronuz-Theme, ../kronuzsh) are written only when present.
+ * Sibling repos (../Kronuz-Theme, ../KronuZSH) are written only when present.
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
@@ -367,11 +367,13 @@ if (existsSync(root("../Kronuz-Theme"))) {
   write(sibling("../Kronuz-Theme/Kronuz-Light.sublime-color-scheme"), sublime(true), "sublime light ../Kronuz-Theme/Kronuz-Light.sublime-color-scheme");
 } else console.log("  (skip Sublime — ../Kronuz-Theme not present)");
 
-// TextMate (kronuzsh sibling repo)
-if (existsSync(root("../kronuzsh"))) {
-  write(sibling("../kronuzsh/integrations/themes/Kronuz.tmTheme"), tmTheme(false), "textmate dark  ../kronuzsh/integrations/themes/Kronuz.tmTheme");
-  write(sibling("../kronuzsh/integrations/themes/Kronuz-Light.tmTheme"), tmTheme(true), "textmate light ../kronuzsh/integrations/themes/Kronuz-Light.tmTheme");
-} else console.log("  (skip TextMate — ../kronuzsh not present)");
+// TextMate (KronuZSH sibling repo). The repo was renamed kronuzsh -> KronuZSH; fresh
+// clones are KronuZSH, but an older checkout may still be lowercase, so accept either.
+const kronuzshRel = ["../KronuZSH", "../kronuzsh"].find((p) => existsSync(root(p)));
+if (kronuzshRel) {
+  write(sibling(`${kronuzshRel}/integrations/themes/Kronuz.tmTheme`), tmTheme(false), `textmate dark  ${kronuzshRel}/integrations/themes/Kronuz.tmTheme`);
+  write(sibling(`${kronuzshRel}/integrations/themes/Kronuz-Light.tmTheme`), tmTheme(true), `textmate light ${kronuzshRel}/integrations/themes/Kronuz-Light.tmTheme`);
+} else console.log("  (skip TextMate — ../KronuZSH not present)");
 
 // Zed (this repo; a single theme-family file carrying the dark + light pair)
 write(here("./zed/themes/Kronuz.json"), zed(), "zed          zed/themes/Kronuz.json");
